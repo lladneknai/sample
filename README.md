@@ -1,2 +1,4 @@
 # sample
-Code sample. Any similarities between this work and project work are purely coincidental.
+
+Sample code that outlines my preferences and provides a reference for my benefit.
+
