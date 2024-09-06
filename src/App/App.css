@@ -1,0 +1,12 @@
+#App {
+  min-height: 100vh;
+  position: relative;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
