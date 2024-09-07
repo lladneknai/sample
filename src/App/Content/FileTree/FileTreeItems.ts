@@ -1,5 +1,4 @@
 import { TreeViewBaseItem } from "@mui/x-tree-view/models";
-
 interface TreeView {
   children?: TreeView[];
   id: string;
@@ -7,25 +6,27 @@ interface TreeView {
   path: string;
 }
 
+/**
+ * This var keeps track of the FULL filepath of each file in the tree.
+ * It is reset on every iteration of the file loop in convertPathToTreeView().
+ * It supersedes the `fileNames` variable which keeps track of ONE piece of the tree, but only enough to build it.
+ */
+let currentFilename = "";
+
+/**
+ * Recursisve function that builds the filetree, using previous nodes to check where this current ndoe should go.
+ */
 function convertFolderOrFileToTree(
   currentTree: TreeView,
   fileNames: string[],
-  fileId: string,
-  fileIndex: number,
-  fullPath: string[]
+  fileId: string
 ): TreeView {
   if (!fileNames.length) {
     return currentTree;
   }
   // If the current tree name is the same as the current file name, it means that the next file in fileNames will be a child of the currentTree. (for example, if currentTree.name === root and fileNames[0] === root, we know that we are at the root, and we can consider that the next fileName will be a child of the current tree, library in this case)
   if (currentTree.label === fileNames[0]) {
-    return convertFolderOrFileToTree(
-      currentTree,
-      [...fileNames.slice(1)],
-      fileId,
-      fileIndex,
-      fullPath
-    );
+    return convertFolderOrFileToTree(currentTree, fileNames.slice(1), fileId);
   } else {
     // We check if current fileName is already a child of the tree.
     const child = currentTree.children?.find((t) => t.label === fileNames[0]);
@@ -37,41 +38,33 @@ function convertFolderOrFileToTree(
           ...(currentTree.children?.filter(
             (tree) => tree.label !== child.label
           ) ?? []),
-          convertFolderOrFileToTree(
-            child,
-            [...fileNames.slice(1)],
-            fileId,
-            fileIndex,
-            fileNames
-          ),
+          convertFolderOrFileToTree(child, fileNames.slice(1), fileId),
         ],
       };
     } else if (fileNames.length > 1) {
       // If the fileName is not registered as a child in the tree and it's not the last fileName (meaning it's a folder), we add it and parse the other fileNames recursively
       const newTree: TreeView = {
-        id: `__DIR__${fullPath.join("/")}__${Math.random()}`,
+        //
+        // The Math.random() here is admittedly pretty damn gross. The issue is how the tree is keyed when you need a standalone file.
+        // TODO: implement something approaching a best practice in place of Math.random() to keep these key errors away.
+        //
+        id: `__DIR__${currentFilename}__${Math.random()}`,
         label: fileNames[0],
-        path: fullPath.join("/"),
+        path: fileNames.join("/"),
         children: [],
       };
       return {
         ...currentTree,
         children: [
           ...(currentTree.children ?? []),
-          convertFolderOrFileToTree(
-            newTree,
-            fileNames.slice(1),
-            fileId,
-            fileIndex,
-            fileNames
-          ),
+          convertFolderOrFileToTree(newTree, fileNames.slice(1), fileId),
         ],
       };
     } else {
       // If the fileName is not registered as a child in the tree and it is the last fileName, meaning it's a file, we just add it to the children and return the tree.
       const newTree: TreeView = {
-        id: fullPath.join("/"),
-        path: fullPath.join("/"),
+        id: currentFilename,
+        path: fileNames.join("/"),
         label: fileNames[0],
       };
       return {
@@ -82,28 +75,29 @@ function convertFolderOrFileToTree(
   }
 }
 
-// The main function we call, to convert a list of fileInfo to the tree
+/**
+ * Exported func that converts the filepaths to an array of TreeViewBaseItem[].
+ */
 export function convertPathToTreeView(filepaths: string[]): TreeViewBaseItem[] {
+  // Initial declaration of the tree. This is the root node onto which all other nodes are attached.
   let tree: TreeView = {
     children: [],
     id: "TREE_BASE",
     path: "/",
     label: "BASE",
   };
-  filepaths.forEach((fileInfo, fileIndex) => {
-    const fileNames = fileInfo.replace(/^\//, "").split("/");
-    tree = convertFolderOrFileToTree(
-      tree,
-      fileNames,
-      fileInfo,
-      fileIndex,
-      fileNames
-    );
+
+  // Loop through each of the filepaths in /public/sourcecode-ref
+  filepaths.forEach((fpath) => {
+    currentFilename = fpath;
+    const fileNames = fpath.replace(/^\//, "").split("/");
+    tree = convertFolderOrFileToTree(tree, fileNames, fpath);
   });
 
+  // Return the tree items and plug them into the FileTree.
   const TreeItems: TreeViewBaseItem[] = [];
   const BaseItems = tree.children;
-  //   console.log("please tell me what the fuck", BaseItems);
+
   BaseItems?.forEach((bi) => {
     TreeItems.push(bi);
   });
