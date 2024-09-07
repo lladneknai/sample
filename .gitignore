@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# VERY IMPORTANT: this one is only updated on deploy so there will be conflicts in EVERY file you edit
+/public/sourcecode
+
 # dependencies
 /node_modules
 /.pnp
