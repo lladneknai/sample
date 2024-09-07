@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { RichTreeView } from "@mui/x-tree-view/RichTreeView";
@@ -7,8 +8,10 @@ import { useFileTree } from "./useFileTree";
 
 export default function ControlledExpansion({
   //   requestedFile,
-  // TODO: figure out this type
   setRequestedFile,
+}: {
+  //   requestedFile: string;
+  setRequestedFile: Dispatch<SetStateAction<string>>;
 }) {
   const {
     handleExpandClick,

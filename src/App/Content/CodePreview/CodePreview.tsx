@@ -1,36 +1,38 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import Stack from "@mui/material/Stack";
+import { CodeBlock } from "react-code-blocks";
+import CodePreviewContainer from "./CodePreviewContainer";
+import useCodePreview from "./useCodePreview";
 
 /**
- * PRE BLOCK THAT LOADS IN THE REQUESTED SOURCECODE
+ * Code Preview | View the requested file from the tree sidebar
  */
-
-function CodePreview({ requestedFile }) {
+function CodePreview({ requestedFile }: { requestedFile: string }) {
   //
-  // take the requested file, fetch it, and drop it into the DOM
-  //
-
-  const fetchFile = () => {
-    console.log("Fetching-->", requestedFile);
-
-    fetch(requestedFile)
-      .then((response) => response.text())
-      .then((text) => {
-        const preview = document.getElementById("preview");
-        if (preview) {
-          preview.innerText = text;
-        } else {
-          console.log("--> preview element was absent");
-        }
-      });
-  };
-  fetchFile();
+  const { codeText, codeTheme, requestedFiletype } =
+    useCodePreview(requestedFile);
 
   return (
-    <Stack>
-      <h3 style={{ marginTop: 0 }}>{requestedFile}</h3>
-      <pre id="preview">CodePreview</pre>
-    </Stack>
+    <CodePreviewContainer>
+      <CodeBlock
+        language={requestedFiletype}
+        showLineNumbers={false}
+        text={codeText}
+        theme={codeTheme}
+        // SUNSET THEMES:
+        //   theme={arta}
+        //   theme={hopscotch}
+        // LIGHT THEMES:
+        //   theme={github}
+        //   theme={monoblue}
+        // DARK THEMES:
+        //   theme={dracula}
+        //   theme={hybrid}
+        //   theme={irBlack}
+        //   theme={monokai}
+        //   theme={monokaiSublime}
+        //   theme={tomorrowNightBright}
+        wrapLongLines
+      />
+    </CodePreviewContainer>
   );
 }
 

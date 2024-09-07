@@ -1,6 +1,6 @@
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
-import VanityPlate from "./VanityPlate/VanityPlate";
+// import VanityPlate from "./VanityPlate/VanityPlate";
 import FileTree from "./FileTree/FileTree";
 import CodePreview from "./CodePreview/CodePreview";
 import React from "react";
@@ -10,12 +10,15 @@ const Content = () => {
 
   return (
     <Container maxWidth="xl" sx={{ paddingLeft: 0 }}>
-      <VanityPlate />
+      {/* <VanityPlate /> */}
       <Stack direction="row">
-        <FileTree
-          requestedFile={requestedFile}
-          setRequestedFile={setRequestedFile}
-        />
+        <Stack>
+          <h4 style={{ marginBottom: 10, marginTop: 10 }}>{requestedFile}</h4>
+          <FileTree
+            // requestedFile={requestedFile}
+            setRequestedFile={setRequestedFile}
+          />
+        </Stack>
         <CodePreview requestedFile={requestedFile} />
       </Stack>
     </Container>
