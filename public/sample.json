@@ -1,0 +1,224 @@
+[
+  {
+    "id": ".env",
+    "path": ".env",
+    "label": ".env"
+  },
+  {
+    "id": "README.md",
+    "path": "README.md",
+    "label": "README.md"
+  },
+  {
+    "id": "index.html",
+    "path": "index.html",
+    "label": "index.html"
+  },
+  {
+    "id": "package.json",
+    "path": "package.json",
+    "label": "package.json"
+  },
+  {
+    "id": "scripts/populate-filetree.js",
+    "label": "scripts",
+    "path": "scripts/populate-filetree.js",
+    "children": [
+      {
+        "id": "populate-filetree.js",
+        "path": "populate-filetree.js",
+        "label": "populate-filetree.js"
+      }
+    ]
+  },
+  {
+    "id": "src/App/App.css",
+    "label": "src",
+    "path": "src/App/App.css",
+    "children": [
+      {
+        "id": "App/App.css",
+        "label": "App",
+        "path": "App/App.css",
+        "children": [
+          {
+            "id": "App.css",
+            "path": "App.css",
+            "label": "App.css"
+          },
+          {
+            "id": "App.tsx",
+            "path": "App.tsx",
+            "label": "App.tsx"
+          },
+          {
+            "id": "Content/CodePreview/CodePreview.tsx",
+            "label": "Content",
+            "path": "Content/CodePreview/CodePreview.tsx",
+            "children": [
+              {
+                "id": "CodePreview/CodePreview.tsx",
+                "label": "CodePreview",
+                "path": "CodePreview/CodePreview.tsx",
+                "children": [
+                  {
+                    "id": "CodePreview.tsx",
+                    "path": "CodePreview.tsx",
+                    "label": "CodePreview.tsx"
+                  },
+                  {
+                    "id": "index.ts",
+                    "path": "index.ts",
+                    "label": "index.ts"
+                  }
+                ]
+              },
+              {
+                "id": "Content.tsx",
+                "path": "Content.tsx",
+                "label": "Content.tsx"
+              },
+              {
+                "id": "FileTree/FileTree.tsx",
+                "label": "FileTree",
+                "path": "FileTree/FileTree.tsx",
+                "children": [
+                  {
+                    "id": "FileTree.tsx",
+                    "path": "FileTree.tsx",
+                    "label": "FileTree.tsx"
+                  },
+                  {
+                    "id": "FileTreeItems.ts",
+                    "path": "FileTreeItems.ts",
+                    "label": "FileTreeItems.ts"
+                  },
+                  {
+                    "id": "index.ts",
+                    "path": "index.ts",
+                    "label": "index.ts"
+                  }
+                ]
+              },
+              {
+                "id": "VanityPlate/VanityPlate.tsx",
+                "label": "VanityPlate",
+                "path": "VanityPlate/VanityPlate.tsx",
+                "children": [
+                  {
+                    "id": "VanityPlate.tsx",
+                    "path": "VanityPlate.tsx",
+                    "label": "VanityPlate.tsx"
+                  },
+                  {
+                    "id": "index.ts",
+                    "path": "index.ts",
+                    "label": "index.ts"
+                  }
+                ]
+              },
+              {
+                "id": "index.ts",
+                "path": "index.ts",
+                "label": "index.ts"
+              }
+            ]
+          },
+          {
+            "id": "Footer/Footer.css",
+            "label": "Footer",
+            "path": "Footer/Footer.css",
+            "children": [
+              {
+                "id": "Footer.css",
+                "path": "Footer.css",
+                "label": "Footer.css"
+              },
+              {
+                "id": "Footer.tsx",
+                "path": "Footer.tsx",
+                "label": "Footer.tsx"
+              },
+              {
+                "id": "index.ts",
+                "path": "index.ts",
+                "label": "index.ts"
+              }
+            ]
+          },
+          {
+            "id": "Header/Header.css",
+            "label": "Header",
+            "path": "Header/Header.css",
+            "children": [
+              {
+                "id": "Header.css",
+                "path": "Header.css",
+                "label": "Header.css"
+              },
+              {
+                "id": "Header.tsx",
+                "path": "Header.tsx",
+                "label": "Header.tsx"
+              },
+              {
+                "id": "ThemePicker/ThemePicker.tsx",
+                "label": "ThemePicker",
+                "path": "ThemePicker/ThemePicker.tsx",
+                "children": [
+                  {
+                    "id": "ThemePicker.tsx",
+                    "path": "ThemePicker.tsx",
+                    "label": "ThemePicker.tsx"
+                  },
+                  {
+                    "id": "index.ts",
+                    "path": "index.ts",
+                    "label": "index.ts"
+                  }
+                ]
+              },
+              {
+                "id": "index.ts",
+                "path": "index.ts",
+                "label": "index.ts"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hooks/useAppTheme.tsx",
+        "label": "hooks",
+        "path": "hooks/useAppTheme.tsx",
+        "children": [
+          {
+            "id": "useAppTheme.tsx",
+            "path": "useAppTheme.tsx",
+            "label": "useAppTheme.tsx"
+          },
+          {
+            "id": "usePublicFiles.ts",
+            "path": "usePublicFiles.ts",
+            "label": "usePublicFiles.ts"
+          }
+        ]
+      },
+      {
+        "id": "main.css",
+        "path": "main.css",
+        "label": "main.css"
+      },
+      {
+        "id": "main.tsx",
+        "path": "main.tsx",
+        "label": "main.tsx"
+      },
+      {
+        "id": "vite-env.d.ts",
+        "path": "vite-env.d.ts",
+        "label": "vite-env.d.ts"
+      }
+    ]
+  }
+]

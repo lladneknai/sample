@@ -1,0 +1,224 @@
+[
+  {
+    "id": ".env___0",
+    "path": ".env",
+    "label": ".env"
+  },
+  {
+    "id": "README.md___1",
+    "path": "README.md",
+    "label": "README.md"
+  },
+  {
+    "id": "index.html___2",
+    "path": "index.html",
+    "label": "index.html"
+  },
+  {
+    "id": "package.json___3",
+    "path": "package.json",
+    "label": "package.json"
+  },
+  {
+    "id": "scripts/populate-filetree.js___4",
+    "label": "scripts",
+    "path": "scripts/populate-filetree.js",
+    "children": [
+      {
+        "id": "scripts/populate-filetree.js___4",
+        "path": "scripts/populate-filetree.js",
+        "label": "populate-filetree.js"
+      }
+    ]
+  },
+  {
+    "id": "src/App/App.css___5",
+    "label": "src",
+    "path": "src/App/App.css",
+    "children": [
+      {
+        "id": "src/App/App.css___5",
+        "label": "App",
+        "path": "src/App/App.css",
+        "children": [
+          {
+            "id": "App/App.css___5",
+            "path": "App/App.css",
+            "label": "App.css"
+          },
+          {
+            "id": "App/App.tsx___6",
+            "path": "App/App.tsx",
+            "label": "App.tsx"
+          },
+          {
+            "id": "App/Content/CodePreview/CodePreview.tsx___7",
+            "label": "Content",
+            "path": "App/Content/CodePreview/CodePreview.tsx",
+            "children": [
+              {
+                "id": "Content/CodePreview/CodePreview.tsx___7",
+                "label": "CodePreview",
+                "path": "Content/CodePreview/CodePreview.tsx",
+                "children": [
+                  {
+                    "id": "CodePreview/CodePreview.tsx___7",
+                    "path": "CodePreview/CodePreview.tsx",
+                    "label": "CodePreview.tsx"
+                  },
+                  {
+                    "id": "CodePreview/index.ts___8",
+                    "path": "CodePreview/index.ts",
+                    "label": "index.ts"
+                  }
+                ]
+              },
+              {
+                "id": "Content/Content.tsx___9",
+                "path": "Content/Content.tsx",
+                "label": "Content.tsx"
+              },
+              {
+                "id": "Content/FileTree/FileTree.tsx___10",
+                "label": "FileTree",
+                "path": "Content/FileTree/FileTree.tsx",
+                "children": [
+                  {
+                    "id": "FileTree/FileTree.tsx___10",
+                    "path": "FileTree/FileTree.tsx",
+                    "label": "FileTree.tsx"
+                  },
+                  {
+                    "id": "FileTree/FileTreeItems.ts___11",
+                    "path": "FileTree/FileTreeItems.ts",
+                    "label": "FileTreeItems.ts"
+                  },
+                  {
+                    "id": "FileTree/index.ts___12",
+                    "path": "FileTree/index.ts",
+                    "label": "index.ts"
+                  }
+                ]
+              },
+              {
+                "id": "Content/VanityPlate/VanityPlate.tsx___13",
+                "label": "VanityPlate",
+                "path": "Content/VanityPlate/VanityPlate.tsx",
+                "children": [
+                  {
+                    "id": "VanityPlate/VanityPlate.tsx___13",
+                    "path": "VanityPlate/VanityPlate.tsx",
+                    "label": "VanityPlate.tsx"
+                  },
+                  {
+                    "id": "VanityPlate/index.ts___14",
+                    "path": "VanityPlate/index.ts",
+                    "label": "index.ts"
+                  }
+                ]
+              },
+              {
+                "id": "Content/index.ts___15",
+                "path": "Content/index.ts",
+                "label": "index.ts"
+              }
+            ]
+          },
+          {
+            "id": "App/Footer/Footer.css___16",
+            "label": "Footer",
+            "path": "App/Footer/Footer.css",
+            "children": [
+              {
+                "id": "Footer/Footer.css___16",
+                "path": "Footer/Footer.css",
+                "label": "Footer.css"
+              },
+              {
+                "id": "Footer/Footer.tsx___17",
+                "path": "Footer/Footer.tsx",
+                "label": "Footer.tsx"
+              },
+              {
+                "id": "Footer/index.ts___18",
+                "path": "Footer/index.ts",
+                "label": "index.ts"
+              }
+            ]
+          },
+          {
+            "id": "App/Header/Header.css___19",
+            "label": "Header",
+            "path": "App/Header/Header.css",
+            "children": [
+              {
+                "id": "Header/Header.css___19",
+                "path": "Header/Header.css",
+                "label": "Header.css"
+              },
+              {
+                "id": "Header/Header.tsx___20",
+                "path": "Header/Header.tsx",
+                "label": "Header.tsx"
+              },
+              {
+                "id": "Header/ThemePicker/ThemePicker.tsx___21",
+                "label": "ThemePicker",
+                "path": "Header/ThemePicker/ThemePicker.tsx",
+                "children": [
+                  {
+                    "id": "ThemePicker/ThemePicker.tsx___21",
+                    "path": "ThemePicker/ThemePicker.tsx",
+                    "label": "ThemePicker.tsx"
+                  },
+                  {
+                    "id": "ThemePicker/index.ts___22",
+                    "path": "ThemePicker/index.ts",
+                    "label": "index.ts"
+                  }
+                ]
+              },
+              {
+                "id": "Header/index.ts___23",
+                "path": "Header/index.ts",
+                "label": "index.ts"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "src/hooks/useAppTheme.tsx___24",
+        "label": "hooks",
+        "path": "src/hooks/useAppTheme.tsx",
+        "children": [
+          {
+            "id": "hooks/useAppTheme.tsx___24",
+            "path": "hooks/useAppTheme.tsx",
+            "label": "useAppTheme.tsx"
+          },
+          {
+            "id": "hooks/usePublicFiles.ts___25",
+            "path": "hooks/usePublicFiles.ts",
+            "label": "usePublicFiles.ts"
+          }
+        ]
+      },
+      {
+        "id": "src/main.css___26",
+        "path": "src/main.css",
+        "label": "main.css"
+      },
+      {
+        "id": "src/main.tsx___27",
+        "path": "src/main.tsx",
+        "label": "main.tsx"
+      },
+      {
+        "id": "src/vite-env.d.ts___28",
+        "path": "src/vite-env.d.ts",
+        "label": "vite-env.d.ts"
+      }
+    ]
+  }
+]

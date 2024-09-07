@@ -1,31 +1,31 @@
 :root {
-    /* background-color: #242424; */
-    /* color: rgba(255, 255, 255, 0.87); */
-    color-scheme: light dark twilight;
-    font-family: Hind, sans-serif;
-    font-synthesis: none;
-    font-weight: 400;
-    line-height: 1.5;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  /* background-color: #242424; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  color-scheme: light dark twilight;
+  font-family: Hind, sans-serif;
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    display: block;
-    height: 100%;
-    margin: 0;
-    position: relative;
-    width: 100%;
+  display: block;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  width: 100%;
 }
 
 a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
 }
 a:hover {
-    color: #535bf2;
+  color: #535bf2;
 }
 
 h1,
@@ -34,27 +34,61 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Exo', serif;
+  font-family: "Exo", serif;
 }
 
 h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
+pre {
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/**
+* MAKE SURE YOU UPDATE THE JS IF YOU CHANGE THESE VALUES
+*/
+
 body.light {
-    color: #213547;
-    background-color: #ffffff;
+  background-color: #fdfdfd;
+  color: #213547;
+  a {
+    color: #85b1ff;
+  }
+  button {
+    background-color: #85b1ff;
+  }
+  pre {
+    background-color: #213547;
+    color: #fdfdfd;
+  }
 }
 
 body.twilight {
-    color: #fca;
-    background-color: #213547;
+  background-color: #213f59;
+  color: #ffd9bf;
+  a {
+    color: #ee7a99;
+  }
+  button {
+    background-color: #ee7a99;
+  }
+  pre {
+    color: #213f59;
+    background-color: #ffd9bf;
+  }
 }
 
 body.dark {
-    color: #ddd;
-    background-color: #333;
+  background-color: #333;
+  color: #ddd;
+
+  pre {
+    color: #333;
+    background-color: #ddd;
+  }
 }
 
 /* @media (prefers-color-scheme: light) {

@@ -8,14 +8,33 @@ import WbIncandescentOutlinedIcon from "@mui/icons-material/WbIncandescentOutlin
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 
+const darkColors = { bg: "#ffffff", text: "#213f59", accent: "#333" };
+const lightColors = { bg: "#213f59", text: "#ffd9bf", accent: "#333" };
+const twilightColors = { bg: "#333", text: "#ddd", accent: "#333" };
+
 /**
  * Swap between these themes using the SpeedDial in the upper right hand corner of the app.
  * "Name" is saved in state, as well as applied to the `body` element as a class.
  */
 const themes = [
-  { enabledIcon: <DarkModeIcon />, icon: <DarkModeOutlinedIcon />, name: "dark" },
-  { enabledIcon: <WbIncandescentIcon />, icon: <WbIncandescentOutlinedIcon />, name: "twilight" },
-  { enabledIcon: <WbSunnyIcon />, icon: <WbSunnyOutlinedIcon />, name: "light" },
+  {
+    colors: darkColors,
+    enabledIcon: <DarkModeIcon />,
+    icon: <DarkModeOutlinedIcon />,
+    name: "dark",
+  },
+  {
+    colors: twilightColors,
+    enabledIcon: <WbIncandescentIcon />,
+    icon: <WbIncandescentOutlinedIcon />,
+    name: "twilight",
+  },
+  {
+    colors: lightColors,
+    enabledIcon: <WbSunnyIcon />,
+    icon: <WbSunnyOutlinedIcon />,
+    name: "light",
+  },
 ];
 
 export function useAppTheme() {
@@ -46,7 +65,9 @@ export function useAppTheme() {
 
   useEffect(() => {
     console.log(
-      `[useAppTheme]--> Setting theme according to SYSTEM: ${systemInDarkmode ? "dark" : "light"}`
+      `[useAppTheme]--> Setting theme according to SYSTEM: ${
+        systemInDarkmode ? "dark" : "light"
+      }`
     );
     if (systemInDarkmode) {
       manageBodyClass("dark");
@@ -55,14 +76,25 @@ export function useAppTheme() {
     }
   }, [systemInDarkmode]);
 
-  const themeIcon = useMemo(() => themes.find((t) => t.name === theme)?.icon, [theme]);
-  const themeName = useMemo(() => themes.find((t) => t.name === theme)?.name, [theme]);
+  const themeIcon = useMemo(
+    () => themes.find((t) => t.name === theme)?.icon,
+    [theme]
+  );
+  const themeName = useMemo(
+    () => themes.find((t) => t.name === theme)?.name,
+    [theme]
+  );
+  const themeColors = useMemo(
+    () => themes.find((t) => t.name === theme)?.colors,
+    [theme]
+  );
 
   return {
     theme,
     themes,
-    themeName,
+    themeColors,
     themeIcon,
+    themeName,
     setTheme,
   };
 }
