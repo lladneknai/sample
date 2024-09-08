@@ -1,8 +1,8 @@
-import { CodeBlock } from "react-code-blocks";
-import CodePreviewContainer from "./CodePreviewContainer";
-import useCodePreview from "./useCodePreview";
-import { useAppTheme } from "../../../hooks/useAppTheme";
 import { useEffect } from "react";
+import { CodeBlock } from "react-code-blocks";
+import { useAppTheme } from "../../../../hooks/useAppTheme";
+import useCodePreview from "../hooks/useCodePreview";
+import CodePreviewContainer from "./CodePreviewContainer";
 
 /**
  * Code Preview | View the requested file from the tree sidebar

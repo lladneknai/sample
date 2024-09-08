@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 import { RichTreeView } from "@mui/x-tree-view/RichTreeView";
 import FileTreeContainer from "./FileTreeContainer";
 import FileTreeSkeleton from "./FileTreeSkeleton";
-import { useFileTree } from "./useFileTree";
+import { useFileTree } from "../hooks/useFileTree";
 
 export default function ControlledExpansion({
   //   requestedFile,

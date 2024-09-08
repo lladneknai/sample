@@ -8,7 +8,20 @@ const VanityBox = styled(Box)(() => ({
 const VanityPlate = () => {
   return (
     <VanityBox maxWidth="xl">
-      <h1>Ian Kendall</h1>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
+      <h3>ian</h3>
     </VanityBox>
   );
 };
