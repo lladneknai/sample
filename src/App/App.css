@@ -11,3 +11,47 @@
 .read-the-docs {
   color: #888;
 }
+
+/**
+* MAKE SURE YOU UPDATE THE JS IF YOU CHANGE THESE VALUES
+*/
+
+#App.light {
+  background-color: #fdfdfd;
+  color: #213547;
+  a {
+    color: #85b1ff;
+  }
+  button {
+    background-color: #85b1ff;
+  }
+  pre {
+    background-color: #213547;
+    color: #fdfdfd;
+  }
+}
+
+#App.twilight {
+  background-color: #213f59;
+  color: #ffd9bf;
+  a {
+    color: #ee7a99;
+  }
+  button {
+    background-color: #ee7a99;
+  }
+  pre {
+    color: #213f59;
+    background-color: #ffd9bf;
+  }
+}
+
+#App.dark {
+  background-color: #333;
+  color: #ddd;
+
+  pre {
+    color: #333;
+    background-color: #ddd;
+  }
+}

@@ -49,9 +49,7 @@ export const useFileTree = () => {
   };
 
   /**
-   * --------------------------------------------------------------------
    * RUNS ON LOAD: Fetch the generated ref file which populates the tree
-   * --------------------------------------------------------------------
    */
   const getCodeData = () => {
     fetch("/sourcecode-ref.txt")

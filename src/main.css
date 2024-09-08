@@ -42,55 +42,6 @@ h1 {
   line-height: 1.1;
 }
 
-pre {
-  padding: 15px;
-  border-radius: 10px;
-}
-
-/**
-* MAKE SURE YOU UPDATE THE JS IF YOU CHANGE THESE VALUES
-*/
-
-body.light {
-  background-color: #fdfdfd;
-  color: #213547;
-  a {
-    color: #85b1ff;
-  }
-  button {
-    background-color: #85b1ff;
-  }
-  pre {
-    background-color: #213547;
-    color: #fdfdfd;
-  }
-}
-
-body.twilight {
-  background-color: #213f59;
-  color: #ffd9bf;
-  a {
-    color: #ee7a99;
-  }
-  button {
-    background-color: #ee7a99;
-  }
-  pre {
-    color: #213f59;
-    background-color: #ffd9bf;
-  }
-}
-
-body.dark {
-  background-color: #333;
-  color: #ddd;
-
-  pre {
-    color: #333;
-    background-color: #ddd;
-  }
-}
-
 /* @media (prefers-color-scheme: light) {
     :root {
     }

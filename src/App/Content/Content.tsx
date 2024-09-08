@@ -19,7 +19,10 @@ const Content = () => {
             setRequestedFile={setRequestedFile}
           />
         </Stack>
-        <CodePreview requestedFile={requestedFile} />
+        <CodePreview
+          requestedFile={requestedFile}
+          //   setRequestedFile={setRequestedFile}
+        />
       </Stack>
     </Container>
   );
