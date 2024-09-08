@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { CodeBlock } from "react-code-blocks";
 import { useAppTheme } from "../../../../hooks/useAppTheme";
 import useCodePreview from "../hooks/useCodePreview";
-import CodePreviewContainer from "./CodePreviewContainer";
+import { CodeBlockSkeleton } from "../../CodeDrawer/styles";
 
 /**
  * Code Preview | View the requested file from the tree sidebar
@@ -17,16 +17,18 @@ function CodePreview({ requestedFile }: { requestedFile: string }) {
     fetchFile(requestedFile);
   }, [requestedFile]);
 
+  if (codeText.length === 0) {
+    return <CodeBlockSkeleton variant="rectangular" />;
+  }
+
   return (
-    <CodePreviewContainer>
-      <CodeBlock
-        language={requestedFiletype}
-        showLineNumbers={false}
-        text={codeText}
-        theme={codeTheme}
-        wrapLongLines
-      />
-    </CodePreviewContainer>
+    <CodeBlock
+      language={requestedFiletype}
+      showLineNumbers={false}
+      text={codeText}
+      theme={codeTheme}
+      wrapLongLines
+    />
   );
 }
 

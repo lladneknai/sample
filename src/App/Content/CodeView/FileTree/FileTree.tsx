@@ -1,8 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { RichTreeView } from "@mui/x-tree-view/RichTreeView";
-import FileTreeContainer from "./FileTreeContainer";
 import FileTreeSkeleton from "./FileTreeSkeleton";
 import { useFileTree } from "../hooks/useFileTree";
 
@@ -14,7 +12,6 @@ export default function ControlledExpansion({
   setRequestedFile: Dispatch<SetStateAction<string>>;
 }) {
   const {
-    handleExpandClick,
     handleExpandedItemsChange,
     handleListItemClick,
     expandedItems,
@@ -24,8 +21,8 @@ export default function ControlledExpansion({
 
   return (
     <Stack spacing={2}>
-      <FileTreeContainer>
-        {fileTreeShown ? (
+      {fileTreeShown ? (
+        <>
           <RichTreeView
             expandedItems={expandedItems}
             items={fileTreeItems}
@@ -35,14 +32,10 @@ export default function ControlledExpansion({
               handleListItemClick(item, setRequestedFile)
             }
           />
-        ) : (
-          <FileTreeSkeleton />
-        )}
-      </FileTreeContainer>
-
-      <Button onClick={handleExpandClick}>
-        {expandedItems.length === 0 ? "Expand all" : "Collapse all"}
-      </Button>
+        </>
+      ) : (
+        <FileTreeSkeleton />
+      )}
     </Stack>
   );
 }

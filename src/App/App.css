@@ -15,6 +15,9 @@
 /**
 * MAKE SURE YOU UPDATE THE JS IF YOU CHANGE THESE VALUES
 */
+#App header {
+  background-color: inherit;
+}
 
 #App.light {
   background-color: #fdfdfd;
