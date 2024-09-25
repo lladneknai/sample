@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { CodeBlock } from "react-code-blocks";
 import { useAppTheme } from "../../../../hooks/useAppTheme";
-import useCodePreview from "../hooks/useCodePreview";
+import useCodePreview from "../../../../hooks/useCodePreview";
 import { CodeBlockSkeleton } from "../../CodeDrawer/styles";
 
 /**

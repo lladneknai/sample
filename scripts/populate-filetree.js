@@ -2,8 +2,14 @@ import fs from "fs";
 import path from "path";
 
 /**
- * RUN THIS LOCALLY TO PRODUCE THE SOURCECODE LIST
- * Make sure the files are also there.
+ * RUN THIS LOCALLY TO PRODUCE THE SOURCECODE LIST.
+ *
+ * This script uses `writePath` (TODO: env it) to create a file
+ * manifest in a text file. This is read by the FileTree on mount,
+ * which builds out the tree.
+ *
+ * FOR NOW: when you do this, you have to copy the files into /public/sourcecode.
+ * IN THE FUTURE: this will be done by a build script (probably including this file).
  */
 
 // Where the 'fake' sourcecode lives,

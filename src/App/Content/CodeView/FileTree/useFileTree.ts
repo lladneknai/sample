@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react";
 import { TreeViewBaseItem, TreeViewItemId } from "@mui/x-tree-view/models";
-import { convertPathToTreeView } from "./file-tree-helpers";
+import { convertPathToTreeView } from "./util";
 
 export const useFileTree = () => {
   const [fileTreeShown, setFileTreeShown] = React.useState(false);

@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import Stack from "@mui/material/Stack";
 import { RichTreeView } from "@mui/x-tree-view/RichTreeView";
 import FileTreeSkeleton from "./FileTreeSkeleton";
-import { useFileTree } from "../hooks/useFileTree";
+import { useFileTree } from "./useFileTree";
 
 export default function ControlledExpansion({
   //   requestedFile,
