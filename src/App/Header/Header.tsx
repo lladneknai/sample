@@ -3,13 +3,13 @@ import Container from "@mui/material/Container";
 import ThemePicker from "./ThemePicker";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { useAppTheme } from "../../hooks/useAppTheme";
+import { useAppSelector } from "../hooks";
 
 function Header() {
-  const { themeColors } = useAppTheme();
+  const theme = useAppSelector((state) => state.theme.theme);
 
   return (
-    <AppBar position="static" sx={{ background: themeColors?.bg || "#333" }}>
+    <AppBar position="static" sx={{ background: theme.colors.bg }}>
       <Container maxWidth="xl" sx={{ paddingLeft: 0 }}>
         <Toolbar
           sx={{
@@ -17,7 +17,7 @@ function Header() {
             paddingLeft: `0px !important`,
           }}
         >
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap sx={{ color: theme.colors.text }}>
             Ian Kendall
           </Typography>
           <ThemePicker />

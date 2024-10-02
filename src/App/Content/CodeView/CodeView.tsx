@@ -1,6 +1,5 @@
 import React from "react";
 import Box from "@mui/material/Box";
-// import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import FileTree from "./FileTree";
 import CodePreview from "./CodePreview";
@@ -9,13 +8,29 @@ import {
   CodeViewHeader,
   FileTreeContainer,
 } from "../CodeDrawer/styles";
-// import { useFileTree } from "./hooks/useFileTree";
+import useCodePreview from "../../../hooks/useCodePreview";
 
+/**
+ * Code View (everything inside the sidebar)
+ *
+ * TODO: figure out if any of this is worth abstracting to RTKQ.
+ * If so, figure out how to get it in plaintext.
+ *
+ */
 const CodeView = () => {
+  //
+
   const [requestedFile, setRequestedFile] = React.useState(`App.tsx`);
-  //   const { expandedItems, handleExpandClick } = useFileTree();
+  const { codeText, fetchFile, requestedFiletype } = useCodePreview();
+
+  // Fetch file contents when user selects it from the tree
+  React.useEffect(() => {
+    fetchFile(requestedFile);
+  }, [requestedFile]);
+
   return (
     <>
+      {/* Name and requested file */}
       <Stack>
         <CodeViewHeader direction="row">
           <Box width="250px">
@@ -29,18 +44,21 @@ const CodeView = () => {
           <h5 style={{ marginBottom: 10, marginTop: 10 }}>{requestedFile}</h5>
         </CodeViewHeader>
       </Stack>
+
+      {/* File tree and preview window */}
       <Stack direction="row">
         <FileTreeContainer>
           <FileTree
-            // requestedFile={requestedFile}
+            //
             setRequestedFile={setRequestedFile}
           />
         </FileTreeContainer>
 
         <CodePreviewContainer>
           <CodePreview
-            requestedFile={requestedFile}
-            //   setRequestedFile={setRequestedFile}
+            //
+            codeText={codeText}
+            requestedFiletype={requestedFiletype}
           />
         </CodePreviewContainer>
       </Stack>

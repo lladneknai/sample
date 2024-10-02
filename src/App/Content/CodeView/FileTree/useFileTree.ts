@@ -24,7 +24,6 @@ export const useFileTree = () => {
 
   React.useEffect(() => {
     if (fileTreeItems.length > 0) {
-      console.log(fileTreeItems);
       setFileTreeShown(true);
     }
   }, [fileTreeItems]);
@@ -53,7 +52,6 @@ export const useFileTree = () => {
    */
   const getCodeData = () => {
     fetch("/sourcecode-ref.txt")
-      // .then((response) => response.text())
       .then((response) => response.json())
       .then((text) => {
         const items = convertPathToTreeView(text);

@@ -2,28 +2,61 @@ import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { useAppTheme } from "../../../hooks/useAppTheme";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import {
+  setTheme,
+  themes,
+  ThemeName,
+  ThemeObject,
+} from "../../../features/theme/themeSlice";
+import icons from "./icons";
 
+/**
+ * Component that selects the global app theme.
+ */
 function ThemePicker() {
-  const { setTheme, theme, themeIcon, themes } = useAppTheme();
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector((state) => state.theme.theme);
+  const setAppTheme = (newTheme: ThemeName) => dispatch(setTheme(newTheme));
 
   return (
     <SpeedDial
       ariaLabel="Select Theme"
       direction="left"
-      sx={{ boxShadow: 0, position: "absolute", right: 8, width: 0 }}
-      icon={<SpeedDialIcon icon={themeIcon} openIcon={<CloseRoundedIcon />} />}
-    >
-      {themes.map((t) => (
-        <SpeedDialAction
-          onClick={() => setTheme(t.name)}
-          icon={t.name === theme ? t.enabledIcon : t.icon}
-          key={t.name}
-          tooltipTitle={`${t.name.slice(0, 1).toUpperCase()}${t.name.slice(
-            1
-          )} theme`}
+      icon={
+        <SpeedDialIcon
+          icon={icons[theme.name].outlined}
+          openIcon={<CloseRoundedIcon />}
+          sx={{ color: theme.colors.text }}
         />
-      ))}
+      }
+      sx={{
+        boxShadow: 0,
+        position: "absolute",
+        right: 8,
+        width: 0,
+      }}
+    >
+      {themes.map((t: ThemeObject) => {
+        return (
+          <SpeedDialAction
+            icon={
+              t.name === theme.name
+                ? icons[t.name].filled
+                : icons[t.name].outlined
+            }
+            key={t.name}
+            onClick={() => setAppTheme(t.name)}
+            sx={{
+              backgroundColor: theme.colors.text,
+              color: theme.colors.bg,
+            }}
+            tooltipTitle={`${t.name.slice(0, 1).toUpperCase()}${t.name.slice(
+              1
+            )} theme`}
+          />
+        );
+      })}
     </SpeedDial>
   );
 }

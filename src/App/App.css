@@ -1,7 +1,4 @@
-#App {
-  height: 100%;
-  min-height: 100vh;
-  position: relative;
+/* #App {
 }
 
 .card {
@@ -11,10 +8,7 @@
 .read-the-docs {
   color: #888;
 }
-
-/**
-* MAKE SURE YOU UPDATE THE JS IF YOU CHANGE THESE VALUES
-*/
+  
 #App header {
   background-color: inherit;
 }
@@ -57,4 +51,4 @@
     color: #333;
     background-color: #ddd;
   }
-}
+} */

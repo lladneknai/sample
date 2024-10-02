@@ -1,21 +1,18 @@
-import { useEffect } from "react";
 import { CodeBlock } from "react-code-blocks";
-import { useAppTheme } from "../../../../hooks/useAppTheme";
-import useCodePreview from "../../../../hooks/useCodePreview";
 import { CodeBlockSkeleton } from "../../CodeDrawer/styles";
+import { useAppSelector } from "../../../hooks";
 
 /**
  * Code Preview | View the requested file from the tree sidebar
  */
-function CodePreview({ requestedFile }: { requestedFile: string }) {
-  //
-  const { codeTheme } = useAppTheme();
-  const { codeText, fetchFile, requestedFiletype } = useCodePreview();
-
-  // Fetch file contents when user selects it from the tree
-  useEffect(() => {
-    fetchFile(requestedFile);
-  }, [requestedFile]);
+function CodePreview({
+  codeText,
+  requestedFiletype,
+}: {
+  codeText: string;
+  requestedFiletype: string;
+}) {
+  const codeTheme = useAppSelector((state) => state.theme.theme.codeTheme);
 
   if (codeText.length === 0) {
     return <CodeBlockSkeleton variant="rectangular" />;
