@@ -2,13 +2,8 @@ import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import {
-  setTheme,
-  themes,
-  ThemeName,
-  ThemeObject,
-} from "../../../features/theme/themeSlice";
+import { useAppDispatch, useAppSelector } from "@hooks/useApp";
+import { setTheme, themes, ThemeName, ThemeObject } from "@theme/themeSlice";
 import icons from "./icons";
 
 /**

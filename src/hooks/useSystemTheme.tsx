@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { setTheme, ThemeName } from "../features/theme/themeSlice";
-import { useAppDispatch } from "../App/hooks";
+import { useAppDispatch } from "@hooks/useApp";
 
 /**
  * Set the default theme of the app based on system's theme.

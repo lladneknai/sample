@@ -1,9 +1,9 @@
 import Container from "@mui/material/Container";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { amountAdded, incremented } from "../../features/counter/counterSlice";
+import { useAppDispatch, useAppSelector } from "@hooks/useApp";
+import { amountAdded, incremented } from "../src/features/counter/counterSlice";
 
 import VanityPlate from "./VanityPlate/VanityPlate";
-import { useFetchBreedsQuery } from "../../features/dogs/dogsApiSlice";
+import { useFetchBreedsQuery } from "../src/features/dogs/dogsApiSlice";
 
 const Content = () => {
   const count = useAppSelector((state) => state.counter.value);

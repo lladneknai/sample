@@ -1,22 +1,17 @@
 {
   "compilerOptions": {
     "paths": {
-      // "baseUrl": ["."],
       "@/*": ["./src/*"],
-      "@App/*": ["src/global/App/*"],
-      "@code/*": ["./src/features/code/*"],
-      "@features/*": ["./src/features/*"],
-      "@global/*": ["./src/global/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@theme/*": ["./src/features/theme/*"]
+      "@code/*": ["./src/features/code/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  // "files": [],
+  // "files": ["**/*.ts", "**/*.tsx"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
+
   /* Everything *should* be set up correctly, but VSCode still likes to complain ¯\_(ツ)_/¯ */
   "skipLibCheck": true
 }

@@ -1,15 +1,16 @@
-import React from "react";
+import { setFiletype, setText } from "@code/codeSlice";
+import { useAppDispatch } from "./useApp";
 
 /**
  * Custom hook that runs the preview window.
  */
 function useCodePreview() {
-  const [codeText, setCode] = React.useState("");
-  const [requestedFiletype, setRequestedFiletype] = React.useState("");
+  const dispatch = useAppDispatch();
 
-  // Fetch the file from /public/sourcecode and set its text to (exported) state.
+  /**
+   * Fetch the file from /public/sourcecode and set its text to (exported) state.
+   */
   function fetchFile(requestedFile: string) {
-    setRequestedFiletype(requestedFile.split(".")[1]);
     //
     // Copies of the sourcecode files are stored here, so their plain text
     // be retreived by requests. This should be converted to an ENV variable soon.
@@ -18,17 +19,16 @@ function useCodePreview() {
     //
     const filePrefix = "/sourcecode/";
     const fileUrl = `${filePrefix}${requestedFile}`;
+
+    dispatch(setFiletype(requestedFile.split(".")[1]));
+
     fetch(fileUrl)
       .then((response) => response.text())
-      .then((text) => {
-        setCode(text);
-      });
+      .then((text) => dispatch(setText(text)));
   }
 
   return {
-    codeText,
     fetchFile,
-    requestedFiletype,
   };
 }
 

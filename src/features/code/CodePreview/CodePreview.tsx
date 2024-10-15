@@ -1,18 +1,14 @@
 import { CodeBlock } from "react-code-blocks";
-import { CodeBlockSkeleton } from "../../CodeDrawer/styles";
-import { useAppSelector } from "../../../hooks";
+import { CodeBlockSkeleton } from "../codeStyles";
+import { useAppSelector } from "@hooks/useApp";
 
 /**
  * Code Preview | View the requested file from the tree sidebar
  */
-function CodePreview({
-  codeText,
-  requestedFiletype,
-}: {
-  codeText: string;
-  requestedFiletype: string;
-}) {
+function CodePreview() {
   const codeTheme = useAppSelector((state) => state.theme.theme.codeTheme);
+  const codeText = useAppSelector((state) => state.code.text);
+  const filetype = useAppSelector((state) => state.code.filetype);
 
   if (codeText.length === 0) {
     return <CodeBlockSkeleton variant="rectangular" />;
@@ -20,7 +16,7 @@ function CodePreview({
 
   return (
     <CodeBlock
-      language={requestedFiletype}
+      language={filetype}
       showLineNumbers={false}
       text={codeText}
       theme={codeTheme}

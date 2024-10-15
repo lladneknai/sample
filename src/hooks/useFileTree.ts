@@ -1,14 +1,20 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react";
 import { TreeViewBaseItem, TreeViewItemId } from "@mui/x-tree-view/models";
-import { convertPathToTreeView } from "./util";
+import { useAppDispatch } from "@hooks/useApp";
+import {
+  setExpandedItems,
+  setFileTreeShown,
+  setFileTreeItems,
+} from "@code/codeSlice";
+import { useAppSelector } from "@hooks/useApp";
+import { convertPathToTreeView } from "../features/code/FileTree/util";
 
+/**
+ *  Custom hook that powers the collapsable file tree.
+ */
 export const useFileTree = () => {
-  const [fileTreeShown, setFileTreeShown] = React.useState(false);
-  const [expandedItems, setExpandedItems] = React.useState<string[]>([]);
-  const [fileTreeItems, setFileTreeItems] = React.useState<TreeViewBaseItem[]>(
-    []
-  );
+  const dispatch = useAppDispatch();
+  const { fileTreeItems } = useAppSelector((state) => state.code);
 
   const getAllItemsWithChildrenItemIds = () => {
     const itemIds: TreeViewItemId[] = [];
@@ -24,7 +30,7 @@ export const useFileTree = () => {
 
   React.useEffect(() => {
     if (fileTreeItems.length > 0) {
-      setFileTreeShown(true);
+      dispatch(setFileTreeShown(true));
     }
   }, [fileTreeItems]);
 
@@ -32,12 +38,14 @@ export const useFileTree = () => {
     _event: React.SyntheticEvent,
     itemIds: string[]
   ) => {
-    setExpandedItems(itemIds);
+    dispatch(setExpandedItems(itemIds));
   };
 
   const handleExpandClick = () => {
-    setExpandedItems((oldExpanded) =>
-      oldExpanded.length === 0 ? getAllItemsWithChildrenItemIds() : []
+    dispatch(
+      setExpandedItems((oldExpanded: string[]) =>
+        oldExpanded.length === 0 ? getAllItemsWithChildrenItemIds() : []
+      )
     );
   };
 
@@ -55,7 +63,7 @@ export const useFileTree = () => {
       .then((response) => response.json())
       .then((text) => {
         const items = convertPathToTreeView(text);
-        setFileTreeItems(items);
+        dispatch(setFileTreeItems(items));
       });
   };
 
@@ -67,11 +75,6 @@ export const useFileTree = () => {
     handleExpandClick,
     handleExpandedItemsChange,
     handleListItemClick,
-    expandedItems,
-    setExpandedItems,
     getCodeData,
-    fileTreeShown,
-    fileTreeItems,
-    setFileTreeShown,
   };
 };
