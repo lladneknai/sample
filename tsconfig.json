@@ -3,7 +3,7 @@
     "paths": {
       // "baseUrl": ["."],
       "@/*": ["./src/*"],
-      "@App/*": ["src/global/App/*"],
+      "@App/*": ["./src/global/App/*"],
       "@code/*": ["./src/features/code/*"],
       "@features/*": ["./src/features/*"],
       "@global/*": ["./src/global/*"],

@@ -1,5 +1,6 @@
 import Content from "@features/content";
-import CodeDrawer from "@code";
+// import CodeDrawer from "@code";
+import Code from "@features/code";
 import Footer from "@global/Footer";
 import Header from "@global/Header";
 import { useAppSelector } from "@hooks/useApp";
@@ -28,7 +29,8 @@ function App() {
       }}
     >
       <Header />
-      <CodeDrawer />
+      {/* <CodeDrawer /> */}
+      <Code />
       <Content />
       <Footer />
     </AppContainer>

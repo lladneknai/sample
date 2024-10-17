@@ -7,7 +7,7 @@ import {
   setFileTreeItems,
 } from "@code/codeSlice";
 import { useAppSelector } from "@hooks/useApp";
-import { convertPathToTreeView } from "../features/code/FileTree/util";
+import { convertPathToTreeView } from "@code/components/FileTree/util";
 
 /**
  *  Custom hook that powers the collapsable file tree.

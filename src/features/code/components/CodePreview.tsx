@@ -1,6 +1,6 @@
+import { useAppSelector } from "@hooks/useApp";
 import { CodeBlock } from "react-code-blocks";
 import { CodeBlockSkeleton } from "../codeStyles";
-import { useAppSelector } from "@hooks/useApp";
 
 /**
  * Code Preview | View the requested file from the tree sidebar

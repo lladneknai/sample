@@ -40,6 +40,8 @@ const CodeDrawer = () => {
     fetchFile(filename);
   }, [filename]);
 
+  return <></>;
+
   return (
     <>
       {/* ================ */}
@@ -69,7 +71,6 @@ const CodeDrawer = () => {
             onClick={() => toggleDrawer(false)}
             color="primary"
           >
-            {/* <WestRoundedIcon /> */}
             <ArrowBackIosRoundedIcon />
           </DrawerOpenButton>
 

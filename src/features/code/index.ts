@@ -1,1 +1,1 @@
-export { default } from "./CodeDrawer";
+export { default } from "./code";

@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import { RichTreeView } from "@mui/x-tree-view/RichTreeView";
 import { useAppDispatch, useAppSelector } from "@hooks/useApp";
 import { useFileTree } from "@hooks/useFileTree";
-import { setFilename } from "../codeSlice";
+import { setFilename } from "@code/codeSlice";
 import FileTreeSkeleton from "./FileTreeSkeleton";
 
 function FileTree() {

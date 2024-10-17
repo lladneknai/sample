@@ -3,25 +3,28 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Shape of state
 interface CodeState {
+  expandedItems: string[];
   filename: string;
   filetype: string;
-  open: boolean;
-  text: string;
-  // todo: reformat
-  expandedItems: string[];
   fileTreeItems: TreeViewBaseItem[];
   fileTreeShown: boolean;
+  fullscreen: boolean;
+  minimized: boolean;
+  open: boolean;
+  text: string;
 }
 
 // Initial state
 const initialState: CodeState = {
+  expandedItems: [],
   filename: "App.tsx",
   filetype: "tsx",
+  fileTreeItems: [],
+  fileTreeShown: false,
+  fullscreen: false,
+  minimized: false,
   open: false,
   text: "",
-  fileTreeShown: false,
-  expandedItems: [],
-  fileTreeItems: [],
 };
 
 // Slice
@@ -37,6 +40,16 @@ const codeSlice = createSlice({
     },
     setOpen(state, action: PayloadAction<boolean>) {
       state.open = action.payload;
+    },
+    setMinimized(state, action: PayloadAction<boolean>) {
+      state.open = true;
+      state.fullscreen = false;
+      state.minimized = action.payload;
+    },
+    setFullscreen(state, action: PayloadAction<boolean>) {
+      state.open = true;
+      state.minimized = false;
+      state.fullscreen = action.payload;
     },
     setText(state, action: PayloadAction<string>) {
       state.text = action.payload;
@@ -58,6 +71,8 @@ export const {
   setFilename,
   setFiletype,
   setOpen,
+  setMinimized,
+  setFullscreen,
   setText,
   setFileTreeItems,
   setFileTreeShown,
