@@ -4,9 +4,9 @@ import { setOpen } from "@code/codeSlice";
 import HeroText from "./components/HeroText";
 import {
   bottomStyles,
-  ButtonContainer,
+  // ButtonContainer,
   ContentContainer,
-  Option,
+  // Option,
   topStyles,
 } from "./styles";
 import { useAppDispatch, useAppSelector } from "../../hooks/useApp";

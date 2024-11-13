@@ -53,7 +53,7 @@ const getCodeTheme = (key: ThemeName) => {
 };
 
 const initialState: ThemeState = {
-  theme: DefaultTheme,
+  theme: DarkTheme,
 };
 
 const themeSlice = createSlice({

@@ -1,5 +1,25 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
     "paths": {
       // "baseUrl": ["."],
       "@/*": ["./src/*"],
@@ -11,12 +31,6 @@
       "@theme/*": ["./src/features/theme/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  // "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
-  /* Everything *should* be set up correctly, but VSCode still likes to complain ¯\_(ツ)_/¯ */
-  "skipLibCheck": true
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

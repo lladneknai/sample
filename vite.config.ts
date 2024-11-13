@@ -1,17 +1,39 @@
-import { fileURLToPath, URL } from "url";
-import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import { params } from "@ampt/sdk";
+import react from "@vitejs/plugin-react-swc";
+import { fileURLToPath, URL } from "url";
 import { config } from "dotenv";
 
 // Load dotenv config
 config();
 
-// https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react()],
+  server: {
+    open: true,
+    port: process.env.PORT ? parseInt(process.env.PORT) : 3001,
+    strictPort: true,
+    // This proxies all outgoing requests from the app to your live Ampt environment
+    proxy: {
+      "/api": {
+        target: params("AMPT_URL"),
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    outDir: "static",
+    reportCompressedSize: true,
+    rollupOptions: {
+      maxParallelFileOps: 10,
+    },
+  },
   define: {
     "process.env": process.env,
   },
-  plugins: [react()],
+  // Path aliases
   resolve: {
     alias: [
       {
