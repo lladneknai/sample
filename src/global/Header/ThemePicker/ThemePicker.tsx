@@ -28,8 +28,10 @@ function ThemePicker() {
       sx={{
         boxShadow: 0,
         position: "absolute",
-        right: 8,
-        width: 0,
+        right: 24,
+        top: 18,
+        height: "24px",
+        width: "24px",
       }}
     >
       {themes.map((t: ThemeObject) => {

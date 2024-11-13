@@ -24,9 +24,12 @@ const filePaths = [];
 const excludedDirectories = [
   ".ampt",
   ".git",
+  ".vite",
+  "config_mod",
   "node_modules",
   "public",
   "sourcecode",
+  "_EXAMPLES",
 ];
 const excludedFilenames = [
   ".DS_Store",

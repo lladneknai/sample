@@ -1,13 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-
+import useCodePreview from "@hooks/useCodePreview";
 import { setOpen } from "@features/code/codeSlice";
 import { useAppSelector } from "@hooks/useApp";
 import { useAppDispatch } from "@hooks/useApp";
-import useCodePreview from "@hooks/useCodePreview";
-
 import type { DialogProps } from "@mui/material";
-
 import Dialog from "@mui/material/Dialog";
 import Stack from "@mui/material/Stack";
 import {
@@ -34,12 +30,22 @@ function Code() {
     dispatch(setOpen(false));
   };
 
+  const handleHeaderClick = () => {
+    if (!minimized) {
+      return;
+    }
+    dispatch(setOpen(true));
+  };
+
+  //--------------------------------------------------------
   // TODO: update this to RTKQ
   const { fetchFile } = useCodePreview();
   // Fetch file contents when user selects it from the tree
   React.useEffect(() => {
     fetchFile(filename);
   }, [filename]);
+  //
+  //--------------------------------------------------------
 
   return (
     <Dialog
@@ -56,7 +62,7 @@ function Code() {
         margin: 0,
       }}
     >
-      <HeaderBar>
+      <HeaderBar onClick={handleHeaderClick}>
         <WindowButtons />
         <Filename>{filename}</Filename>
       </HeaderBar>

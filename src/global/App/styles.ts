@@ -8,6 +8,12 @@ export const AppContainer = styled(Box)(() => ({
 
   // Static styles
   height: "100%",
-  minHeight: "100vh",
+  // minHeight: "100vh",
   position: "relative",
+
+  "*": {
+    fontFamily: "Exo, sans-serif",
+    fontWeight: 400,
+    letterSpacing: "-0.00em",
+  },
 }));

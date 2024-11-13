@@ -7,13 +7,24 @@ export const FooterContainer = styled(Box)(() => ({
   display: "flex",
   justifyContent: "space-between",
   position: "absolute",
-  width: "100%",
+  paddingLeft: "12px",
+  width: "calc(100% - 12px)",
 }));
 
 export const FooterLogo = styled(Box)(() => ({
   img: {
-    height: "40px",
-    width: "40px",
+    height: "24px",
+    width: "24px",
+    "&:hover": {
+      filter: "drop-shadow(0 0 2em #646cffaa)",
+    },
+  },
+}));
+
+export const FooterLogoAmpt = styled(Box)(() => ({
+  img: {
+    height: "30px",
+    width: "70px",
     "&:hover": {
       filter: "drop-shadow(0 0 2em #646cffaa)",
     },

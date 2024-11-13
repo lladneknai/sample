@@ -40,6 +40,8 @@ const codeSlice = createSlice({
     },
     setOpen(state, action: PayloadAction<boolean>) {
       state.open = action.payload;
+      state.fullscreen = false;
+      state.minimized = false;
     },
     setMinimized(state, action: PayloadAction<boolean>) {
       state.open = true;

@@ -101,7 +101,7 @@ export const Filename = styled(Box)(() => ({
 }));
 
 export const FileTreeContainer = styled(Box)(() => ({
-  height: "370px",
+  // height: "370px",
   overflow: "scroll",
   width: "250px",
   "*": {

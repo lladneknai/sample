@@ -1,12 +1,11 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 
+import appReducer from "../global/App/appSlice";
 import codeReducer from "../features/code/codeSlice";
-import counterReducer from "../features/counter/counterSlice";
 import themeReducer from "../features/theme/themeSlice";
 
 import { codeApiSlice } from "../features/code/codeApiSlice";
-import { dogsApiSlice } from "../features/dogs/dogsApiSlice";
 
 /**
  * In the example, this was two separate files. I combined them for legibility.
@@ -16,19 +15,15 @@ import { dogsApiSlice } from "../features/dogs/dogsApiSlice";
 export const store = configureStore({
   reducer: {
     // Automatically calls combineReducers, so counterReducer represents state.count
+    app: appReducer,
     code: codeReducer,
-    counter: counterReducer,
     theme: themeReducer,
 
     // API slices
-    [dogsApiSlice.reducerPath]: dogsApiSlice.reducer,
     [codeApiSlice.reducerPath]: codeApiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(
-      dogsApiSlice.middleware,
-      codeApiSlice.middleware
-    );
+    return getDefaultMiddleware().concat(codeApiSlice.middleware);
   },
 });
 
