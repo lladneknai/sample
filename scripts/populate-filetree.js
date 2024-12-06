@@ -2,14 +2,11 @@ import fs from "fs";
 import path from "path";
 
 /**
- * RUN THIS LOCALLY TO PRODUCE THE SOURCECODE LIST.
+ * This script uses `writePath` to create a directory manifest in the form of
+ * a text file. This is read by the FileTree on mount, which builds out the tree.
  *
- * This script uses `writePath` (TODO: env it) to create a file
- * manifest in a text file. This is read by the FileTree on mount,
- * which builds out the tree.
- *
- * FOR NOW: when you do this, you have to copy the files into /public/sourcecode.
- * IN THE FUTURE: this will be done by a build script (probably including this file).
+ * Currently working to add this into a pre-deploy script that rolls into Ampt's
+ * build process so that it's alllll automated.
  */
 
 // Where the 'fake' sourcecode lives,

@@ -13,16 +13,14 @@ function Header() {
   return (
     <Box
       sx={{
-        // backgroundColor: "#fff2",
         alignItems: "center",
         display: "flex",
         position: "absolute",
-        justifyContent: "space-between",
         height: "60px",
         right: "8px",
         top: 0,
-        zIndex: 1,
         width: "100%",
+        zIndex: 1,
       }}
     >
       <Typography

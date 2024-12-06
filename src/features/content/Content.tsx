@@ -1,30 +1,29 @@
-import { setOpen } from "@code/codeSlice";
-// import Box from "@mui/material/Box";
-// import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 import HeroText from "./components/HeroText";
+import HeroTextRevealed from "./components/HeroTextRevealed";
 import {
   bottomStyles,
-  // ButtonContainer,
   ContentContainer,
-  // Option,
+  revealedStyles,
   topStyles,
 } from "./styles";
 import { useAppDispatch, useAppSelector } from "../../hooks/useApp";
-import { setImageNumber } from "../../global/App/appSlice";
+import { setRevealed } from "../../global/App/appSlice";
 
 /**
  * Base app content.
  */
 const Content = () => {
   const dispatch = useAppDispatch();
+  const revealContent = () => dispatch(setRevealed(true));
+  const revealed = useAppSelector((state) => state.app.revealed);
 
-  const imageNumber = useAppSelector((state) => state.app.imageNumber);
+  /**
+   * TODO: redo the fucking shit out of this with https://www.npmjs.com/package/framer-motion
+   */
 
-  const updateImageNumber = () => {
-    const number = Math.ceil(Math.random() * (8 - 1));
-    console.log("Changing TO:", number);
-    dispatch(setImageNumber(number));
-  };
+  // const imageNumber = useAppSelector((state) => state.app.imageNumber);
+  const imageNumber = 1; // 1-9(?)
 
   return (
     <ContentContainer
@@ -32,19 +31,23 @@ const Content = () => {
         backgroundImage: `url(/desktop${imageNumber}.jpg)`,
       }}
     >
-      <HeroText styles={bottomStyles} />
-      <HeroText styles={topStyles} />
-      {/* <ButtonContainer>
-        <Option onClick={() => dispatch(setOpen(true))} variant="outlined">
-          View My Projects
-        </Option>
-        <Option onClick={() => dispatch(setOpen(true))} variant="outlined">
-          View Source Code
-        </Option>
-        <Option onClick={() => updateImageNumber()} variant="outlined">
-          Change The Vibe
-        </Option>
-      </ButtonContainer> */}
+      {/* TODO: this is bs get rid of it */}
+      {revealed ? (
+        <>
+          <HeroTextRevealed styles={revealedStyles} />
+        </>
+      ) : (
+        <Box
+          onMouseEnter={() => {
+            setTimeout(() => {
+              revealContent();
+            }, 750);
+          }}
+        >
+          <HeroText styles={bottomStyles} />
+          <HeroText styles={topStyles} />
+        </Box>
+      )}
     </ContentContainer>
   );
 };

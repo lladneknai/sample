@@ -1,30 +1,5 @@
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-
-export const ButtonContainer = styled(Box)(({ theme: { breakpoints } }) => ({
-  // height: "100px",
-  // position: "absolute",
-  // bottom: 0,
-  // right: 0,
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "flex-end",
-  paddingTop: "10vh",
-  paddingRight: "12px",
-  width: "100%",
-}));
-
-export const Option = styled(Button)(() => ({
-  display: "flex",
-  height: "40px",
-  marginBottom: "20px",
-  color: "white",
-  borderColor: "white",
-  borderRadius: "20px",
-  width: "200px",
-}));
 
 export const ContentContainer = styled(Box)(({ theme: { breakpoints } }) => ({
   backgroundSize: "cover",
@@ -56,11 +31,6 @@ export const HeroTextContainer = styled(Box)(() => ({
     color: "white",
     mixBlendMode: "difference",
   },
-  ":hover": {
-    h1: {
-      // transition: "opacity 750ms ease-in-out",
-    },
-  },
 }));
 
 export const bottomStyles = {
@@ -76,7 +46,14 @@ export const topStyles = {
     opacity: 1,
     "h1, h3": {
       mixBlendMode: "hard-light",
-      // mixBlendMode: "none",
     },
+  },
+};
+
+export const revealedStyles = {
+  opacity: 1,
+  transition: "opacity 750ms ease-in-out",
+  "h1, h3": {
+    mixBlendMode: "hard-light",
   },
 };

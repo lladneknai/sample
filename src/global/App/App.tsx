@@ -25,11 +25,9 @@ function App() {
       sx={{
         backgroundColor: theme.colors.bg,
         color: theme.colors.text,
-        fontFamily: "Exo, sans-serif",
       }}
     >
       <Header />
-      {/* <CodeDrawer /> */}
       <Code />
       <Content />
       <Footer />
