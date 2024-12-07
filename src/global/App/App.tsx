@@ -25,6 +25,7 @@ function App() {
       sx={{
         backgroundColor: theme.colors.bg,
         color: theme.colors.text,
+        minHeight: "100vh",
       }}
     >
       <Header />

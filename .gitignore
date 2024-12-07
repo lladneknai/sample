@@ -29,3 +29,6 @@ yarn-error.log*
 .ampt/*
 .amptignore
 .devcontainer.json
+
+# React Component Preview
+previewConfig.json
