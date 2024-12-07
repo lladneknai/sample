@@ -50,7 +50,7 @@ function* readAllFiles(dir) {
   const localDir = dir.replace(readPath, "");
 
   for (const file of files) {
-    if (excludedDirectories.includes(file?.path?.replace(readPath, ""))) {
+    if (excludedDirectories.includes(file.path.replace(readPath, ""))) {
       continue;
     }
 
