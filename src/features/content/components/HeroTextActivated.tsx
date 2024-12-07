@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import { ContentContainer } from "../styles";
 import { getSentenceVariants } from "../util";
 import FadeInText from "./FadeInText";
+import { useAppDispatch } from "@/hooks/useApp";
+import { setOpen } from "@/features/code/codeSlice";
 
 function HeroTextActivated() {
   const line1 = "You found me.";
@@ -11,6 +13,8 @@ function HeroTextActivated() {
   const line5 = "View source code";
   const line6 = "View projects";
   const line7 = "Get in touch";
+
+  const dispatch = useAppDispatch();
 
   return (
     <ContentContainer>
@@ -68,7 +72,10 @@ function HeroTextActivated() {
       >
         <ul style={{ listStyle: "none" }}>
           <li>
-            <h3>
+            <h3
+              onClick={() => dispatch(setOpen(true))}
+              style={{ cursor: "pointer" }}
+            >
               <FadeInText line={line5} />
             </h3>
           </li>

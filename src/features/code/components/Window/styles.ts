@@ -31,5 +31,5 @@ export const WindowContainer = styled(Paper, {
   ...getMinimizedAttributes(minimized),
 
   // TODO: separate this from dragging
-  transition: "all 100ms ease-in-out",
+  // transition: "all 100ms ease-in-out",
 }));

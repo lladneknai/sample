@@ -28,8 +28,8 @@ function App() {
         minHeight: "100vh",
       }}
     >
-      <Header />
       <Code />
+      <Header />
       <Content />
       <Footer />
     </AppContainer>
